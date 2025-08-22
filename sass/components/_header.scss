@@ -1,0 +1,173 @@
+@use "../utils/variables" as *;
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 10;
+    &__list{
+        display: flex;
+        list-style: none;
+        gap: 25px;
+    }
+    &__logo-wrapper{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    &__logo{
+        font-family: Montserrat;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    &__link{
+        font-family: Montserrat;
+        font-weight: 500;
+        font-size: 14px;
+        color: $text-primary;
+        &:hover{
+            color: $decor-color;
+        }
+    }
+    &__svg-wrapper{
+        display: flex;
+        gap: 19px;
+    }
+    &__svg:hover{
+        fill: $decor-color;
+    }
+}
+.header__chocolate-svg{
+    fill: white;
+}
+.burger{
+    display: none;
+}
+.open{
+    display: flex !important;
+}
+.nav{
+    display: none;
+}
+
+@media (max-width:1024px){
+    .header{
+        height: 47px;
+    }
+    .header__list{
+        display: none;
+    }
+    .header__svg-wrapper{
+        display: none;
+    }
+    .burger{
+        display: flex;
+        position: relative;
+        z-index: 50;
+        align-items: center;
+        justify-content: flex-end;
+        width: 30px;
+        height: 18px;
+        &__span{
+            height: 2px;
+            width: 100%;
+            transform: scale(1);
+            background-color: $text-primary;
+        }
+        &::before{
+            content: "";
+            height: 2px;
+            width: 100%;
+            position: absolute;
+            background-color: $text-primary;
+            transition: all 0.3s ease 0s;
+            top: 0;
+        }
+        &::after{
+            content: "";
+            height: 2px;
+            width: 100%;
+            position: absolute;
+            background-color: $text-primary;
+            transition: all 0.3s ease 0s;
+            bottom: 0;
+        }
+    }
+    .burger.active .burger__span{
+        transform: scale(0);
+    }
+    .burger.active::before{
+        top: 50%;
+        transform: rotate(-45deg) translate(0, -50%);
+        background-color: $ui-color;
+    }
+    .burger.active::after{
+        top: 50%;
+        transform: rotate(45deg) translate(0, -50%);
+        background-color: $ui-color;
+    }
+    .nav{
+        background-color: $bg-color;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        right: 0;
+        position: fixed;
+        z-index: 50;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        transform: translateX(100%);
+    }
+    .nav.active{
+        transition: all 1s;
+        transform: translateX(0);
+    }
+    .nav__wrapper{
+        display: flex;
+        justify-content: center;
+        margin-top: 110px;
+    }
+    .nav__svg{
+        fill: $ui-color;
+        &:hover{
+            fill: $decor-color;
+        }
+    }
+    .nav__svg-wrapper{
+        display: flex;
+        position: absolute;
+        top: 95%;
+        left: 5%;
+        gap: 10px;
+    }
+    .nav__list{
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        gap: 35px;
+    }
+    .nav__link{
+         color: $ui-color;
+        font-family: Montserrat;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        position: relative;
+        list-style: none;
+        &:hover{
+            color: $decor-color;
+        }
+        &:hover::after{
+            content: "";
+            width: 50%;
+            height: 1px;
+            position: absolute;
+            top: 20px;
+            right: 50%;
+            border: none;
+            background-color: $decor-color;
+        }
+    }
+}

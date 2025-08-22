@@ -1,0 +1,20 @@
+@use "./components/header";
+@use "./components/main";
+@use "./components/footer";
+.container{
+    width: 100%;
+    max-width: 1136px;
+    padding: 0 15px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+html, body{
+    overflow-x: hidden;
+    max-width: none;
+}
+a{
+    text-decoration: none;
+}
+body{
+    background-color: #FAFAFA;
+}
