@@ -3,7 +3,7 @@
 @use "../utils/variables" as *;
 .hero{
     font-family: Montserrat;
-    background-image: url(img/backround-img.jpg);
+    background-image: url(../img/backround-img.jpg);
     height: 600px;
     border-radius: 30px;
     display: flex;
@@ -994,7 +994,7 @@
 }
 .info
 {
-    background-image: url(img/information__bg.png);
+    background-image: url(../img/information__bg.png);
     background-position: center;
     background-repeat: no-repeat;
     height: 370px;
